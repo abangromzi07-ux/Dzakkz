@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Developer Profile</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #3b82f6;
+  --blue2: #60a5fa;
+  --blue-dark: #1d4ed8;
+
+  --bg: #030712;
+  --bg2: #07101f;
+
+  --card: rgba(255,255,255,.045);
+  --card2: rgba(255,255,255,.025);
+  --border: rgba(255,255,255,.09);
+
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --muted2: #64748b;
+
+  --green: #4ade80;
+  --red: #f87171;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  padding: 20px 14px 70px;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(59,130,246,.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 100% 35%,
+      rgba(29,78,216,.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      160deg,
+      var(--bg),
+      var(--bg2) 55%,
+      #030712
+    );
+}
+
+/* Background glow */
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 280px;
+  height: 280px;
+  left: -140px;
+  top: 35%;
+  border-radius: 50%;
+  background: rgba(59,130,246,.07);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 240px;
+  height: 240px;
+  right: -120px;
+  top: 10%;
+  border-radius: 50%;
+  background: rgba(37,99,235,.06);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 34px 22px 28px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.065),
+      rgba(255,255,255,.025)
+    );
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  animation: fadeUp .6s ease both;
+}
+
+/* top decorative glow */
+
+.profile-card::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(59,130,246,.18);
+  filter: blur(50px);
+  border-radius: 50%;
+}
+
+.profile-card::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 0;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(96,165,250,.7),
+      transparent
+    );
+}
+
+/* Profile photo */
+
+.profile-photo-wrap {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  margin: 0 auto 18px;
+
+  padding: 3px;
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue2),
+      var(--blue-dark)
+    );
+
+  box-shadow:
+    0 0 0 7px rgba(59,130,246,.06),
+    0 12px 35px rgba(37,99,235,.25);
+}
+
+.profile-photo-wrap::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 5px;
+
+  width: 15px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+  border: 3px solid #07101f;
+
+  box-shadow: 0 0 12px rgba(34,197,94,.6);
+}
+
+.profile-photo-wrap img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  border-radius: 50%;
+
+  background: #111827;
+}
+
+/* Name */
+
+.profile-name {
+  position: relative;
+  z-index: 1;
+
+  font-size: 25px;
+  font-weight: 600;
+
+  letter-spacing: -.4px;
+
+  margin-bottom: 7px;
+}
+
+.profile-bio {
+  position: relative;
+  z-index: 1;
+
+  max-width: 500px;
+  margin: auto;
+
+  color: var(--muted);
+
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+/* Edit button */
+
+.btn {
+  border: none;
+  cursor: pointer;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+
+  transition:
+    transform .18s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.btn:active {
+  transform: scale(.96);
+}
+
+.btn-edit {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 21px;
+
+  padding: 10px 18px;
+
+  color: #bfdbfe;
+
+  border-radius: 11px;
+
+  background:
+    rgba(59,130,246,.1);
+
+  border: 1px solid rgba(59,130,246,.3);
+
+  font-size: 13px;
+}
+
+.btn-edit i {
+  margin-right: 5px;
+}
+
+.btn-edit:hover {
+  background: rgba(59,130,246,.18);
+
+  box-shadow:
+    0 7px 25px rgba(59,130,246,.12);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 38px 2px 13px;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.section-title i {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  color: var(--blue2);
+
+  background: rgba(59,130,246,.1);
+
+  border: 1px solid rgba(59,130,246,.12);
+
+  font-size: 13px;
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  padding: 10px;
+
+  border-radius: 21px;
+
+  background: var(--card2);
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+}
+
+.social-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 11px;
+
+  border-radius: 15px;
+
+  color: var(--text);
+  text-decoration: none;
+
+  background: rgba(255,255,255,.025);
+
+  border: 1px solid rgba(255,255,255,.045);
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.social-item:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255,255,255,.055);
+
+  border-color: rgba(59,130,246,.2);
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: var(--blue2);
+
+  background: rgba(59,130,246,.1);
+
+  font-size: 17px;
+}
+
+.social-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.social-name {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.social-handle {
+  margin-top: 1px;
+
+  color: var(--muted2);
+
+  font-size: 11px;
+}
+
+.social-arrow {
+  margin-right: 3px;
+
+  color: #475569;
+
+  font-size: 12px;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.social-item:hover .social-arrow {
+  color: var(--blue2);
+  transform: translate(2px,-2px);
+}
+
+/* =========================
+   PROJECT
+========================= */
+
+#projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 18px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.025)
+    );
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+
+  animation: fadeUp .5s ease both;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(59,130,246,.2);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.18);
+}
+
+.project-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -50px;
+  top: -50px;
+
+  border-radius: 50%;
+
+  background: rgba(59,130,246,.07);
+
+  filter: blur(25px);
+}
+
+.project-head {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 9px;
+}
+
+.project-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  color: var(--blue2);
+
+  background: rgba(59,130,246,.1);
+
+  border: 1px solid rgba(59,130,246,.1);
+}
+
+.project-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.project-desc {
+  color: var(--muted);
+
+  font-size: 12.5px;
+  line-height: 1.65;
+
+  margin-bottom: 12px;
+}
+
+.project-types {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-bottom: 12px;
+}
+
+.type-chip {
+  padding: 4px 9px;
+
+  border-radius: 999px;
+
+  color: #94a3b8;
+
+  background: rgba(255,255,255,.045);
+
+  border: 1px solid rgba(255,255,255,.07);
+
+  font-size: 10.5px;
+}
+
+.project-date {
+  color: #475569;
+
+  font-size: 10.5px;
+
+  margin-bottom: 13px;
+}
+
+.project-date span {
+  color: var(--muted2);
+}
+
+.btn-explore {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 10px;
+
+  color: white;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue),
+      var(--blue-dark)
+    );
+
+  font-size: 12.5px;
+
+  box-shadow:
+    0 5px 18px rgba(37,99,235,.12);
+}
+
+.btn-explore:hover {
+  box-shadow:
+    0 7px 25px rgba(37,99,235,.3);
+}
+
+/* Empty */
+
+.empty-state {
+  padding: 32px 15px;
+
+  text-align: center;
+
+  color: var(--muted2);
+
+  font-size: 12.5px;
+
+  border: 1px dashed rgba(255,255,255,.1);
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.015);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 100;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+
+  background: rgba(0,0,0,.68);
+
+  backdrop-filter: blur(9px);
+}
+
+.modal-overlay.active {
+  display: flex;
+
+  animation: modalFade .2s ease;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 310px;
+
+  padding: 22px;
+
+  border-radius: 23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17,24,39,.96),
+      rgba(5,10,20,.96)
+    );
+
+  border: 1px solid rgba(255,255,255,.1);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55);
+
+  animation: modalUp .25s ease;
+}
+
+.modal-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.modal-title-row h3 {
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  color: var(--muted);
+}
+
+.modal-close {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  color: var(--muted);
+
+  background: rgba(255,255,255,.05);
+
+  cursor: pointer;
+
+  font-size: 17px;
+}
+
+.modal-close:hover {
+  color: white;
+  background: rgba(255,255,255,.09);
+}
+
+/* PIN */
+
+.passkey-display {
+  display: flex;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-bottom: 21px;
+}
+
+.passkey-dot {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  border: 2px solid rgba(96,165,250,.35);
+
+  transition:
+    background .15s ease,
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.passkey-dot.filled {
+  background: var(--blue2);
+
+  border-color: var(--blue2);
+
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 12px rgba(96,165,250,.5);
+}
+
+/* Keypad */
+
+.keypad {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 9px;
+}
+
+.key-btn {
+  height: 49px;
+
+  border-radius: 13px;
+
+  color: var(--text);
+
+  background: rgba(255,255,255,.045);
+
+  border: 1px solid rgba(255,255,255,.07);
+
+  font-family: 'Poppins', sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background .15s ease,
+    transform .1s ease,
+    border-color .15s ease;
+}
+
+.key-btn:hover {
+  background: rgba(255,255,255,.08);
+
+  border-color: rgba(96,165,250,.15);
+}
+
+.key-btn:active {
+  transform: scale(.94);
+}
+
+.key-btn.key-confirm {
+  color: var(--green);
+}
+
+.key-btn.key-clear {
+  color: var(--red);
+
+  font-size: 14px;
+}
+
+.passkey-error {
+  min-height: 17px;
+
+  margin-top: 13px;
+
+  color: var(--red);
+
+  text-align: center;
+
+  font-size: 11.5px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 420px) {
+
+  body {
+    padding:
+      14px
+      11px
+      50px;
+  }
+
+  .profile-card {
+    padding:
+      30px
+      16px
+      25px;
+
+    border-radius: 24px;
+  }
+
+  .profile-photo-wrap {
+    width: 105px;
+    height: 105px;
+  }
+
+  .profile-name {
+    font-size: 23px;
+  }
+
+  .profile-bio {
+    font-size: 12.5px;
+  }
+
+  .section-title {
+    margin-top: 32px;
+  }
+
+  .project-card {
+    padding: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- PROFILE -->
+
+  <div class="profile-card">
+
+    <div class="profile-photo-wrap">
+      <img
+        id="profile-photo"
+        src=""
+        alt="Foto Profil"
+      >
+    </div>
+
+    <div
+      class="profile-name"
+      id="profile-name"
+    >
+      Memuat...
+    </div>
+
+    <div
+      class="profile-bio"
+      id="profile-bio"
+    >
+      Memuat data profil...
+    </div>
+
+    <button
+      class="btn btn-edit"
+      id="btn-edit-profil"
+    >
+      <i class="fa-solid fa-pen"></i>
+      Edit Profil
+    </button>
+
+  </div>
+
+
+  <!-- SOCIAL MEDIA -->
+
+  <div class="section-title">
+    <i class="fa-solid fa-share-nodes"></i>
+    <span>Sosial Media</span>
+  </div>
+
+  <div class="social-card">
+
+    <a
+      class="social-item"
+      href="https://www.instagram.com/dzakkz_07?stkn=ajR3Y2VtdnYycThn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="social-icon">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+
+      <div class="social-info">
+        <div class="social-name">
+          Instagram
+        </div>
+
+        <div class="social-handle">
+          @dzakkz_07
+        </div>
+      </div>
+
+      <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+    </a>
+
+
+    <a
+      class="social-item"
+      href="https://www.tiktok.com/@dzakkz_?_r=1&_t=ZS-9AFHlhYNQgs"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="social-icon">
+        <i class="fa-brands fa-tiktok"></i>
+      </div>
+
+      <div class="social-info">
+        <div class="social-name">
+          TikTok
+        </div>
+
+        <div class="social-handle">
+          @dzakkz_
+        </div>
+      </div>
+
+      <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+    </a>
+
+
+    <a
+      class="social-item"
+      href="https://www.youtube.com/@dzakkeditz"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+
+      <div class="social-icon">
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+
+      <div class="social-info">
+        <div class="social-name">
+          YouTube
+        </div>
+
+        <div class="social-handle">
+          @dzakkeditz
+        </div>
+      </div>
+
+      <i class="fa-solid fa-arrow-up-right-from-square social-arrow"></i>
+
+    </a>
+
+  </div>
+
+
+  <!-- PROJECTS -->
+
+  <div class="section-title">
+    <i class="fa-solid fa-layer-group"></i>
+    <span>Project</span>
+  </div>
+
+  <div id="projects-list">
+
+    <div class="empty-state">
+      Belum ada project.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PASSKEY MODAL -->
+
+<div
+  class="modal-overlay"
+  id="passkey-modal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-title-row">
+
+      <h3>
+        OWNER ONLY
+      </h3>
+
+      <button
+        class="modal-close"
+        id="btn-close-modal"
+      >
+        &times;
+      </button>
+
+    </div>
+
+
+    <div
+      class="passkey-display"
+      id="passkey-display"
+    >
+
+      <div class="passkey-dot"></div>
+      <div class="passkey-dot"></div>
+      <div class="passkey-dot"></div>
+      <div class="passkey-dot"></div>
+
+    </div>
+
+
+    <div class="keypad">
+
+      <button class="key-btn" data-key="1">1</button>
+      <button class="key-btn" data-key="2">2</button>
+      <button class="key-btn" data-key="3">3</button>
+
+      <button class="key-btn" data-key="4">4</button>
+      <button class="key-btn" data-key="5">5</button>
+      <button class="key-btn" data-key="6">6</button>
+
+      <button class="key-btn" data-key="7">7</button>
+      <button class="key-btn" data-key="8">8</button>
+      <button class="key-btn" data-key="9">9</button>
+
+      <button
+        class="key-btn key-confirm"
+        id="key-confirm"
+      >
+        <i class="fa-solid fa-check"></i>
+      </button>
+
+      <button class="key-btn" data-key="0">0</button>
+
+      <button
+        class="key-btn key-clear"
+        id="key-clear"
+      >
+        <i class="fa-solid fa-delete-left"></i>
+      </button>
+
+    </div>
+
+
+    <div
+      class="passkey-error"
+      id="passkey-error"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  onValue
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyD2xNsbD6cNwivtuXFDUsOa6Z69hUaPY3",
+
+  authDomain:
+    "myprofil-777.firebaseapp.com",
+
+  databaseURL:
+    "https://myprofil-777-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+  projectId:
+    "myprofil-777",
+
+  storageBucket:
+    "myprofil-777.firebasestorage.app",
+
+  messagingSenderId:
+    "176292026987",
+
+  appId:
+    "1:176292026987:web:78aa730a04c08e77502f2e",
+
+  measurementId:
+    "G-1821B6LQG8"
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const db =
+  getDatabase(app);
+
+
+const DEFAULT_PHOTO =
+  "https://i.imgur.com/P1qJoOk.jpeg";
+
+
+/* =========================
+   PROFILE
+========================= */
+
+const profileRef =
+  ref(db, "profile");
+
+
+onValue(
+  profileRef,
+  (snapshot) => {
+
+    const data =
+      snapshot.val() || {};
+
+
+    document.getElementById(
+      "profile-name"
+    ).textContent =
+      data.name ||
+      "Dzakkz";
+
+
+    document.getElementById(
+      "profile-bio"
+    ).textContent =
+      data.bio ||
+      "gw bikin web tujuannya buat edukasi bukan buat emosi, beberapa project gw kadang berguna kadang kaga. wajar developer muda.";
+
+
+    document.getElementById(
+      "profile-photo"
+    ).src =
+      data.photo ||
+      DEFAULT_PHOTO;
+
+
+    currentPasskey =
+      data.passkey || null;
+
+  }
+);
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+const categoryIcon = {
+
+  tools:
+    "fa-screwdriver-wrench",
+
+  bug:
+    "fa-bug",
+
+  game:
+    "fa-gamepad"
+
+};
+
+
+function formatTanggalIndonesia(
+  timestamp
+) {
+
+  if (!timestamp) return "-";
+
+
+  const date =
+    new Date(timestamp);
+
+
+  const tanggal =
+    date.toLocaleDateString(
+      "id-ID",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    );
+
+
+  const jam =
+    date.toLocaleTimeString(
+      "id-ID",
+      {
+        hour: "2-digit",
+        minute: "2-digit"
+      }
+    );
+
+
+  return `${tanggal}, ${jam}`;
+
+}
+
+
+const projectsRef =
+  ref(db, "projects");
+
+
+const projectsListEl =
+  document.getElementById(
+    "projects-list"
+  );
+
+
+onValue(
+  projectsRef,
+  (snapshot) => {
+
+    const data =
+      snapshot.val();
+
+
+    projectsListEl.innerHTML =
+      "";
+
+
+    if (!data) {
+
+      projectsListEl.innerHTML =
+        `
+        <div class="empty-state">
+          Belum ada project.
+        </div>
+        `;
+
+      return;
+
+    }
+
+
+    const projectArray =
+      Object.entries(data)
+
+        .map(
+          ([id, val]) => ({
+            id,
+            ...val
+          })
+        )
+
+        .sort(
+          (a, b) =>
+            (b.createdAt || 0) -
+            (a.createdAt || 0)
+        );
+
+
+    projectArray.forEach(
+      (project) => {
+
+        const icon =
+          categoryIcon[
+            project.category
+          ] ||
+          "fa-folder";
+
+
+        const types =
+          Array.isArray(
+            project.types
+          )
+            ? project.types
+            : [];
+
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+
+        card.className =
+          "project-card";
+
+
+        card.innerHTML = `
+
+          <div class="project-head">
+
+            <div class="project-icon">
+
+              <i
+                class="fa-solid ${icon}"
+              ></i>
+
+            </div>
+
+            <div class="project-title">
+
+              ${escapeHtml(
+                project.title || "-"
+              )}
+
+            </div>
+
+          </div>
+
+
+          <div class="project-desc">
+
+            ${escapeHtml(
+              project.description || ""
+            )}
+
+          </div>
+
+
+          <div class="project-types">
+
+            ${types
+              .map(
+                t =>
+                  `
+                  <span class="type-chip">
+                    ${escapeHtml(t)}
+                  </span>
+                  `
+              )
+              .join("")
+            }
+
+          </div>
+
+
+          <div class="project-date">
+
+            Ditambahkan:
+            <span>
+              ${formatTanggalIndonesia(
+                project.createdAt
+              )}
+            </span>
+
+          </div>
+
+
+          <button
+            class="btn btn-explore"
+            data-link="${escapeAttr(
+              project.link || ""
+            )}"
+          >
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+            ></i>
+
+            Jelajahi Project
+
+          </button>
+
+        `;
+
+
+        projectsListEl.appendChild(
+          card
+        );
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(
+        ".btn-explore"
+      )
+      .forEach(
+        (btn) => {
+
+          btn.addEventListener(
+            "click",
+            () => {
+
+              const link =
+                btn.getAttribute(
+                  "data-link"
+                );
+
+
+              if (link) {
+
+                window.open(
+                  link,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+  }
+);
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHtml(str) {
+
+  return String(str)
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    );
+
+}
+
+
+function escapeAttr(str) {
+
+  return String(str)
+
+    .replace(
+      /"/g,
+      "&quot;"
+    );
+
+}
+
+
+/* =========================
+   PASSKEY
+========================= */
+
+let currentPasskey =
+  null;
+
+let inputBuffer =
+  "";
+
+
+const modal =
+  document.getElementById(
+    "passkey-modal"
+  );
+
+
+const dots =
+  document.querySelectorAll(
+    ".passkey-dot"
+  );
+
+
+const errorEl =
+  document.getElementById(
+    "passkey-error"
+  );
+
+
+/* Open */
+
+document
+  .getElementById(
+    "btn-edit-profil"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      inputBuffer = "";
+
+      errorEl.textContent =
+        "";
+
+      updateDots();
+
+      modal.classList.add(
+        "active"
+      );
+
+    }
+  );
+
+
+/* Close */
+
+document
+  .getElementById(
+    "btn-close-modal"
+  )
+  .addEventListener(
+    "click",
+    closeModal
+  );
+
+
+modal.addEventListener(
+  "click",
+  (e) => {
+
+    if (
+      e.target === modal
+    ) {
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+function closeModal() {
+
+  modal.classList.remove(
+    "active"
+  );
+
+  inputBuffer = "";
+
+  updateDots();
+
+  errorEl.textContent =
+    "";
+
+}
+
+
+/* Dots */
+
+function updateDots() {
+
+  dots.forEach(
+    (dot, i) => {
+
+      dot.classList.toggle(
+        "filled",
+        i < inputBuffer.length
+      );
+
+    }
+  );
+
+}
+
+
+/* Numbers */
+
+document
+  .querySelectorAll(
+    ".key-btn[data-key]"
+  )
+  .forEach(
+    (btn) => {
+
+      btn.addEventListener(
+        "click",
+        () => {
+
+          if (
+            inputBuffer.length >= 4
+          ) {
+
+            return;
+
+          }
+
+
+          inputBuffer +=
+            btn.getAttribute(
+              "data-key"
+            );
+
+
+          errorEl.textContent =
+            "";
+
+
+          updateDots();
+
+        }
+      );
+
+    }
+  );
+
+
+/* Clear */
+
+document
+  .getElementById(
+    "key-clear"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      inputBuffer = "";
+
+      errorEl.textContent =
+        "";
+
+      updateDots();
+
+    }
+  );
+
+
+/* Confirm */
+
+document
+  .getElementById(
+    "key-confirm"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      if (!inputBuffer) {
+
+        errorEl.textContent =
+          "Masukkan passkey terlebih dahulu.";
+
+        return;
+
+      }
+
+
+      if (
+        currentPasskey === null
+      ) {
+
+        errorEl.textContent =
+          "Passkey belum diatur di database.";
+
+        return;
+
+      }
+
+
+      if (
+        inputBuffer ===
+        String(currentPasskey)
+      ) {
+
+        window.location.href =
+          "owner.html";
+
+      } else {
+
+        errorEl.textContent =
+          "Passkey salah. Coba lagi.";
+
+        inputBuffer = "";
+
+        updateDots();
+
+      }
+
+    }
+  );
+
+</script>
+
+</body>
+</html>
